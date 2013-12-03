@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Thu Nov 28 14:57:15 2013 souvisay keolasy
-** Last update Tue Dec  3 03:03:01 2013 souvisay keolasy
+** Last update Tue Dec  3 09:31:57 2013 souvisay keolasy
 */
 
 #include <stdio.h>
@@ -41,6 +41,9 @@ t_bool		read_arg(t_file *file, t_cmd *cmd)
 	size = IND_SIZE;
       else
 	size = g_tabsize[type][1];
+      if ((cmd->cmd == 11 && (i == 2 || i == 3) && size >= 4) ||
+	  (cmd->cmd == 10 && (i == 1 || i == 2) && size >= 4))
+	size = 2;
       my_read(file->fdin, &arg, size);
       arg = check_endianess(arg, size);
       printf("%d = %d | ", type, arg);

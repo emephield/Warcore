@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Mon Oct 21 02:18:10 2013 souvisay keolasy
-** Last update Tue Dec  3 02:31:08 2013 souvisay keolasy
+** Last update Tue Dec  3 09:23:36 2013 souvisay keolasy
 */
 
 #ifndef		COREWAR_H_
@@ -65,5 +65,6 @@ t_bool	open_file(t_ctrl *ctrl, char **path);
 t_bool	read_header(t_ctrl *ctrl);
 t_bool	is_big_endian();
 t_bool	read_file(t_ctrl *ctrl);
+unsigned int	check_endianess(unsigned int nb, int len);
 
 #endif		/* COREWAR_H_ */
