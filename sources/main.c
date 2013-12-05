@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Fri Nov 15 13:54:10 2013 souvisay keolasy
-** Last update Thu Nov 28 15:07:05 2013 souvisay keolasy
+** Last update Thu Dec  5 08:22:54 2013 souvisay keolasy
 */
 
 #include <unistd.h>
@@ -16,6 +16,7 @@
 int		main(int ac, char **av)
 {
   t_ctrl	ctrl;
+  t_cmd	*temp;
 
   printf("***START***\n");
   ctrl.head = NULL;
@@ -27,6 +28,12 @@ int		main(int ac, char **av)
       printf("****READ****\n");
       read_header(&ctrl);
       read_file(&ctrl);
+      temp = ctrl.head->head;
+      while (temp != NULL)
+	{
+	  printf("%d\n", temp->cmd);
+	  temp = temp->next;
+	}
     }
   else
     {

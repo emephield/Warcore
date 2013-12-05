@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Thu Nov 28 14:57:15 2013 souvisay keolasy
-** Last update Tue Dec  3 09:31:57 2013 souvisay keolasy
+** Last update Thu Dec  5 08:45:11 2013 souvisay keolasy
 */
 
 #include <stdio.h>
@@ -30,13 +30,11 @@ t_bool		read_arg(t_file *file, t_cmd *cmd)
 {
   int		i;
   int		type;
-  unsigned int	arg;
   unsigned int	size;
 
   i = 1;
   while (i < MAX_ARGS_NUMBER && (type = GETTARG(cmd->param, i)) != 0)
     {
-      arg = 0;
       if (cmd->cmd == 12 || cmd->cmd == 15 || cmd->cmd == 9)
 	size = IND_SIZE;
       else
@@ -44,13 +42,10 @@ t_bool		read_arg(t_file *file, t_cmd *cmd)
       if ((cmd->cmd == 11 && (i == 2 || i == 3) && size >= 4) ||
 	  (cmd->cmd == 10 && (i == 1 || i == 2) && size >= 4))
 	size = 2;
-      my_read(file->fdin, &arg, size);
-      arg = check_endianess(arg, size);
-      printf("%d = %d | ", type, arg);
+      my_read(file->fdin, &cmd->arg[i - 1], size);
+      cmd->arg[i - 1] = check_endianess(cmd->arg[i - 1], size);
       i++;
     }
-  printf("\n");
-  /* exit(0); */
   return (TRUE);
 }
 
@@ -79,7 +74,6 @@ t_bool		read_command(t_file *file)
   temp = 0;
   while ((ret = my_read(file->fdin, &temp, 1)) > 0)
     {
-      printf("%X : ", temp);
       if ((cmd = my_malloc(sizeof(*cmd))) == NULL)
 	return (FALSE);
       cmd->cmd = temp;
@@ -89,6 +83,14 @@ t_bool		read_command(t_file *file)
 	    return (FALSE);
       	  if (read_arg(file, cmd) == FALSE)
 	    return (FALSE);
+	  if (file->head == NULL)
+	    file->head = cmd;
+	  if (file->tail != NULL)
+	    {
+	      file->tail->next = cmd;
+	      cmd->prev = file->tail;
+	    }
+	  file->tail = cmd;
 	}
     }
   return (((ret == -1) ? (FALSE) : (TRUE)));

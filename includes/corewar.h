@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Mon Oct 21 02:18:10 2013 souvisay keolasy
-** Last update Tue Dec  3 09:23:36 2013 souvisay keolasy
+** Last update Thu Dec  5 08:47:25 2013 souvisay keolasy
 */
 
 #ifndef		COREWAR_H_
@@ -27,18 +27,15 @@ typedef union		u_endian
   char			str[4];
 }			t_endian;
 
-/* typedef struct		s_typesize */
-/* { */
-
-/* }			t_typesize; */
-
 typedef struct		s_cmd
 {
   struct s_cmd		*next;
+  struct s_cmd		*prev;
   char			*name;
   int			size;
   char			cmd;
   unsigned char		param;
+  int			arg[MAX_ARGS_NUMBER + 1];
 }			t_cmd;
 
 typedef	struct	s_file
@@ -61,10 +58,10 @@ typedef struct	s_ctrl
   t_file	*tail;
 }		t_ctrl;
 
-t_bool	open_file(t_ctrl *ctrl, char **path);
-t_bool	read_header(t_ctrl *ctrl);
-t_bool	is_big_endian();
-t_bool	read_file(t_ctrl *ctrl);
+t_bool		open_file(t_ctrl *ctrl, char **path);
+t_bool		read_header(t_ctrl *ctrl);
+t_bool		is_big_endian();
+t_bool		read_file(t_ctrl *ctrl);
 unsigned int	check_endianess(unsigned int nb, int len);
 
 #endif		/* COREWAR_H_ */
