@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Thu Nov 28 14:57:15 2013 souvisay keolasy
-** Last update Sun Dec  8 03:19:14 2013 souvisay keolasy
+** Last update Sun Dec  8 16:17:05 2013 souvisay keolasy
 */
 
 #include <stdlib.h>
@@ -43,6 +43,8 @@ t_bool		read_arg(t_file *file, t_cmd *cmd)
 	size = 2;
       my_read(file->fdin, &cmd->arg[i - 1], size);
       cmd->arg[i - 1] = check_endianess(cmd->arg[i - 1], size);
+      if (size ==2)
+	cmd->arg[i - 1] = (short) cmd->arg[i - 1]; 
       i++;
     }
   return (TRUE);

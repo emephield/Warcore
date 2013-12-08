@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Sun Dec  8 03:03:02 2013 souvisay keolasy
-** Last update Sun Dec  8 03:19:27 2013 souvisay keolasy
+** Last update Sun Dec  8 16:24:28 2013 souvisay keolasy
 */
 
 #include <stdlib.h>
@@ -32,6 +32,8 @@ t_bool		write_file(t_ctrl *ctrl)
 	     printf(",");
 	   if (type == 2)
 	     printf("%c", DIRECT_CHAR);
+	   else if (type == 1)
+	     printf("%c", 'r');
 	   printf("%d", temp->arg[i - 1]);
 	   i++;
 	 }
