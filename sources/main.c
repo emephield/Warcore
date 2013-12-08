@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Fri Nov 15 13:54:10 2013 souvisay keolasy
-** Last update Thu Dec  5 08:22:54 2013 souvisay keolasy
+** Last update Sun Dec  8 03:09:30 2013 souvisay keolasy
 */
 
 #include <unistd.h>
@@ -16,30 +16,28 @@
 int		main(int ac, char **av)
 {
   t_ctrl	ctrl;
-  t_cmd	*temp;
+  t_cmd		*temp;
 
-  printf("***START***\n");
   ctrl.head = NULL;
   ctrl.tail = NULL;
   if (ac >= 2)
     {
       if (open_file(&ctrl, av + 1) == FALSE)
 	return (FALSE);
-      printf("****READ****\n");
       read_header(&ctrl);
       read_file(&ctrl);
       temp = ctrl.head->head;
-      while (temp != NULL)
-	{
-	  printf("%d\n", temp->cmd);
-	  temp = temp->next;
-	}
+      write_file(&ctrl);
+      /* while (temp != NULL) */
+      /* 	{ */
+      /* 	  printf("%d\n", temp->cmd); */
+      /* 	  temp = temp->next; */
+      /* 	} */
     }
   else
     {
       print_error(USAGE);
       return (EXIT_FAILURE);
     }
-  printf("****END****\n");
   return (EXIT_SUCCESS);
 }

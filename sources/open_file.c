@@ -5,7 +5,7 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Sun Nov 17 12:00:43 2013 souvisay keolasy
-** Last update Thu Nov 28 14:44:25 2013 souvisay keolasy
+** Last update Sun Dec  8 02:59:42 2013 souvisay keolasy
 */
 
 #include <stdlib.h>
@@ -93,7 +93,6 @@ t_bool	open_file(t_ctrl *ctrl, char **path)
   new_file = NULL;
   while (*path != NULL)
     {
-      printf("****LOOP****\n");
       if ((temp = my_strdup(*path)) == FALSE)
 	return (FALSE);
       if (check_ext(INEXT, temp, &new_file) == FALSE)

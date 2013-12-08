@@ -5,7 +5,7 @@
 ## Login   <keolas_s@epitech.net>
 ## 
 ## Started on  Tue Oct 15 08:44:43 2013 souvisay keolasy
-## Last update Thu Nov 28 15:07:17 2013 souvisay keolasy
+## Last update Sun Dec  8 03:09:58 2013 souvisay keolasy
 ##
 
 SRCSDIR	= sources
@@ -21,7 +21,8 @@ SRCS	= $(SRCSDIR)/main.c \
 	  $(SRCSDIR)/open_file.c \
 	  $(SRCSDIR)/read_header.c \
 	  $(SRCSDIR)/read_file.c \
-	  $(SRCSDIR)/endian.c
+	  $(SRCSDIR)/endian.c \
+	  $(SRCSDIR)/write_file.c
 
 OBJS	= $(SRCS:.c=.o)
 

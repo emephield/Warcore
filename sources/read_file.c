@@ -5,12 +5,11 @@
 ** Login   <keolas_s@epitech.net>
 ** 
 ** Started on  Thu Nov 28 14:57:15 2013 souvisay keolasy
-** Last update Thu Dec  5 08:45:11 2013 souvisay keolasy
+** Last update Sun Dec  8 03:19:14 2013 souvisay keolasy
 */
 
-#include <stdio.h>
-
 #include <stdlib.h>
+#include "my_errno.h"
 #include "boolean.h"
 #include "corewar.h"
 #include "tools.h"
@@ -18,7 +17,7 @@
 
 extern op_t	op_tab[];
 
-static int	g_tabsize[][2] =
+int	g_tabsize[][2] =
   {
     {0, 0}, 
     {1, 1}, 

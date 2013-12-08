@@ -1,11 +1,11 @@
 /*
-** gen_laby.h for cartographer in /home/keolas_s//test/prog_elem/cartographer/include
+** corewar.h for warcore in /home/keolas_s//git/warcore
 ** 
 ** Made by souvisay keolasy
 ** Login   <keolas_s@epitech.net>
 ** 
-** Started on  Mon Oct 21 02:18:10 2013 souvisay keolasy
-** Last update Thu Dec  5 08:47:25 2013 souvisay keolasy
+** Started on  Sun Dec  8 03:03:27 2013 souvisay keolasy
+** Last update Sun Dec  8 03:09:32 2013 souvisay keolasy
 */
 
 #ifndef		COREWAR_H_
